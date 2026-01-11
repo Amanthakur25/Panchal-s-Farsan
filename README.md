@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Haldiram's Clone - Next.js Frontend
 
-## Getting Started
+This is a frontend clone of the Haldiram's website built with Next.js, TypeScript, and Tailwind CSS. The application replicates the frontend of the popular Indian snacks, namkeens, sweets, and related products online store.
 
-First, run the development server:
+## Features
 
+- **Responsive Design**: Fully responsive layout for mobile, tablet, and desktop
+- **Product Catalog**: Browse products across multiple categories (Namkeen, Sweets, Snacks, Ready to Eat, Gifts)
+- **Shopping Cart**: Add/remove items, update quantities with persistent storage using localStorage
+- **Product Details**: Detailed product pages with images, descriptions, ingredients, and nutritional info
+- **Search Functionality**: Global search across all products
+- **Filters & Sorting**: Filter by price, subcategory, and sort by various criteria
+- **Checkout Process**: Simple form with WhatsApp order placement integration
+- **SEO Optimized**: Proper meta tags and structured data
+
+## Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Styling**: Tailwind CSS
+- **State Management**: Zustand
+- **Icons**: Heroicons and React Feather
+- **Type Safety**: TypeScript
+
+## Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd haldiram-clone
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) (or the port shown in the terminal) to view the application.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── product/[id]/       # Dynamic product pages
+│   ├── cart/              # Shopping cart page
+│   ├── checkout/          # Checkout page
+│   ├── search/            # Search results page
+│   └── ...                # Other category pages
+├── components/            # Reusable UI components
+│   ├── common/            # Shared components (Header, Footer)
+│   ├── ui/                # UI components (ProductCard, etc.)
+│   └── modals/            # Modal components
+├── data/                  # Product data and other static data
+├── stores/                # Zustand stores (cart, etc.)
+└── utils/                 # Utility functions (WhatsApp link generator, etc.)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Functionalities
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Shopping Cart
+- Uses Zustand with localStorage persistence
+- Add, remove, and update quantities
+- Real-time cart count updates in header
 
-## Deploy on Vercel
+### WhatsApp Order Integration
+- On checkout, generates a pre-filled WhatsApp message with order details
+- Includes product names, quantities, total price, and delivery address
+- Opens WhatsApp in a new tab for easy ordering
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Product Management
+- 25+ sample products across different categories
+- Placeholder images from Unsplash
+- Rating system and discount display
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Search & Filtering
+- Global search functionality
+- Category-specific filtering
+- Price range sliders
+- Sorting options (price, popularity, rating)
+
+## Pages Included
+
+- **Home Page** (/): Hero carousel, best sellers, category browsing
+- **Category Pages** (/namkeen, /sweets, /snacks, /ready-to-eat, /gifts): Filterable product listings
+- **Product Detail Page** (/product/[id]): Detailed product information
+- **Cart Page** (/cart): Shopping cart management
+- **Checkout Page** (/checkout): Order form with WhatsApp integration
+- **About Page** (/about): Company information
+- **Contact Page** (/contact): Contact form and information
+- **Search Page** (/search): Dynamic search results
+
+## Custom Components
+
+- **ProductCard**: Displays product information with add-to-cart functionality
+- **Header**: Sticky navigation with search and cart icon
+- **Footer**: Site footer with links and contact information
+- **Carousel**: Home page banner carousel
+
+## Dependencies
+
+- `next`: Latest version with App Router
+- `react`, `react-dom`: Core React libraries
+- `tailwindcss`: Styling framework
+- `zustand`: State management
+- `@heroicons/react`: Icons
+- `react-feather`: Additional icons
+
+## Environment
+
+This is a frontend-only application with no backend dependencies. All data is hardcoded for demonstration purposes.
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests for improvements. The application is designed to be easily extensible with additional features and pages.
+
+## License
+
+This project is created for educational purposes. The original Haldiram's brand and content belong to their respective owners.
