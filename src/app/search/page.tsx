@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { products } from '@/data/products';
 import ProductCard from '@/components/ui/ProductCard';
+import { Suspense } from 'react';
 
-const SearchPage = () => {
+const SearchPageContent = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
   const [searchResults, setSearchResults] = useState<any[]>([]);
@@ -64,6 +65,24 @@ const SearchPage = () => {
         </>
       )}
     </div>
+  );
+};
+
+const SearchPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-gray-800 mb-8">
+          Search Results
+        </h1>
+        <div className="text-center py-12">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#173f3d]"></div>
+          <p className="mt-4 text-gray-600">Loading search results...</p>
+        </div>
+      </div>
+    }>
+      <SearchPageContent />
+    </Suspense>
   );
 };
 
